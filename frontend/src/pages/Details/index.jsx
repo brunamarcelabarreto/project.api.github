@@ -28,7 +28,7 @@ export const Details = () => {
   return (
     <>
       <Header>
-        <Title>List of Github Users</Title>
+        <Title>User Details</Title>
       </Header>
       <DetailListContainer>
         <DetailItemContainer>
