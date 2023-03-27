@@ -16,7 +16,7 @@ export const Details = () => {
 
   console.log(1)
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/details/${login}`)
+    axios.get(`http://localhost:10000/api/details/${login}`)
       .then(response => {
         console.log(response);
         setUserDetails(response.data);
