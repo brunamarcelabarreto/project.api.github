@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserListContainer, UserItemContainer, Username, ButtonContainer, Button, ButtonPage, Header, Title } from './styles';
+import { UserListContainer, UserItemContainer, Username, ButtonContainer, Button, ButtonPage, Header, Title} from './styles';
 
 export const Home = () => {
   const [users, setUsers] = useState([]);
@@ -9,7 +9,7 @@ export const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/users/users?page=${pagination.page}&limit=${pagination.limit}`)
+    axios.get(`http://localhost:3000/api/users?page=${pagination.page}&limit=${pagination.limit}`)
       .then(response => {
         console.log(response)
         setUsers(response.data.users);
@@ -38,7 +38,8 @@ export const Home = () => {
         <ButtonPage onClick={() => setPagination({ ...pagination, page: pagination.page - 1 })} disabled={pagination.page === 1}>Previous</ButtonPage>
         <ButtonPage onClick={() => setPagination({ ...pagination, page: pagination.page + 1 })} disabled={pagination.page === pagination.totalPages}>Next</ButtonPage>
       </ButtonContainer>
-    </UserListContainer></>
+    </UserListContainer>
+    </>
   )
 }
 

@@ -2,20 +2,23 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
+import { ReposListContainer, ReposItemContainer, ButtonContainer, Button, Header, Title, Text } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 export const Repos = () => {
   const [userRepos, setUserRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const { login } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/users/repos?username=${login}`)
-    .then((response) => {
-      console.log(response.data);
-      setUserRepos(response.data);
-      setLoading(false);
-    })
+    axios.get(`http://localhost:3000/api/repos/${login}`)
+      .then((response) => {
+        console.log(response.data);
+        setUserRepos(response.data);
+        setLoading(false);
+      })
   }, [login]);
 
   if (loading) {
@@ -27,16 +30,23 @@ export const Repos = () => {
   }
 
   return (
-    <div>
-      <h2>Repositories for {login}:</h2>
-      <ul>
+    <>
+      <Header>
+        <Title>Repositories for {login}</Title>
+      </Header>
+      <ReposListContainer>
         {userRepos.map((repo) => (
-          <li key={repo.name}>
-            <h3>{repo.name}</h3>
-            <p>{repo.description}</p>
-          </li>
+          <ReposItemContainer>
+            <Title key={repo.name}>{repo.name}
+            </Title>
+              <Text>Id: {repo.id}</Text>
+              <Text>{repo.url}</Text>
+            
+          </ReposItemContainer>
         ))}
-      </ul>
-    </div>
+        <ButtonContainer>
+          <Button onClick={() => navigate(-1)}>Back</Button>
+        </ButtonContainer>
+      </ReposListContainer></>
   );
 };

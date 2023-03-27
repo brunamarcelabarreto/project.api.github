@@ -30,11 +30,7 @@ exports.getUserDetails = async (req, res) => {
   try {
     const { username } = req.params;
     const url = `${BASE_URL}/users/${username}`;
-    const response = await axios.get(url, {
-      headers: {
-        Authorization: `token ${token}`,
-      },
-    });
+    const response = await axios.get(url);
     res.send(response.data);
   } catch (err) {
     res.json(err);
@@ -43,13 +39,9 @@ exports.getUserDetails = async (req, res) => {
 
 exports.getUserRepos = async (req, res) => {
   try {
-    const { username } = req.query;
+    const { username } = req.params;
     const url = `${BASE_URL}/users/${username}/repos`;
-    const response = await axios.get(url, {
-      headers: {
-        Authorization: `token ${token}`,
-      },
-    });
+    const response = await axios.get(url);
     res.send(response.data);
   } catch (err) {
     res.json(err);

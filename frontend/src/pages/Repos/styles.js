@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-
 export const Header = styled.header`
   background-color: #f5f5f5;
   height: 60px;
   display: flex;
-  width: 50%;
+  width: 60%;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -19,32 +18,32 @@ export const Title = styled.h1`
   font-family: 'Roboto', sans-serif;
   color: black;
   align-items: center;
-  font-size: 50px;
+  font-size: 40px;
 `;
 
-export const UserListContainer = styled.div`
+export const ReposListContainer = styled.div`
   display:flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
 `;
 
-export const UserItemContainer = styled.div`
+export const ReposItemContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 600px;
+  width: auto;
   padding: 10px;
   margin-bottom: 5px;
   background-color: #f5f5f5;
   border-radius: 5px;
+  flex-direction: column;
 `;
 
-export const Username = styled.span`
+export const Text = styled.span`
   font-size: 22px;
   font-family: 'Roboto', sans-serif;
   color: black;
-  margin: 10px 10px 10px 0;
+  margin: 5px;
 `;
 
 export const ButtonContainer = styled.div`
