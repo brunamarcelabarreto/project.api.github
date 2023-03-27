@@ -13,7 +13,7 @@ export const Repos = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:10000/api/repos/${login}`)
+    axios.get(`https://challenge-api-sxr2.onrender.com/api/repos/${login}`)
       .then((response) => {
         console.log(response.data);
         setUserRepos(response.data);

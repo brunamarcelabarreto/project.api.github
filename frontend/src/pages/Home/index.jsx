@@ -9,7 +9,7 @@ export const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:10000/api/users?page=${pagination.page}&limit=${pagination.limit}`)
+    axios.get(`https://challenge-api-sxr2.onrender.com/api/users?page=${pagination.page}&limit=${pagination.limit}`)
       .then(response => {
         console.log(response)
         setUsers(response.data.users);

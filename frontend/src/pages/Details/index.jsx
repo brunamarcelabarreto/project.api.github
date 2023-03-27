@@ -16,7 +16,7 @@ export const Details = () => {
 
   console.log(1)
   useEffect(() => {
-    axios.get(`http://localhost:10000/api/details/${login}`)
+    axios.get(`https://challenge-api-sxr2.onrender.com/api/details/${login}`)
       .then(response => {
         console.log(response);
         setUserDetails(response.data);
