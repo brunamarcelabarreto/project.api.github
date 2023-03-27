@@ -1,1 +1,0 @@
-# project.shaw.and.partners
