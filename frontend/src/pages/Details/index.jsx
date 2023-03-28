@@ -14,7 +14,6 @@ export const Details = () => {
 
   const { login } = useParams();
 
-  console.log(1)
   useEffect(() => {
     axios.get(`https://challenge-api-sxr2.onrender.com/api/details/${login}`)
       .then(response => {

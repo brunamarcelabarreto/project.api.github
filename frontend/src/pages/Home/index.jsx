@@ -24,7 +24,7 @@ export const Home = () => {
     <Title>List of Github Users</Title>
     </Header>
     <UserListContainer>
-      {users.map(user => (
+      {users?.map(user => (
         <UserItemContainer key={user.id}>
           <Username>User ID: {user.id}</Username>
           <Username>Login: {user.login}</Username>

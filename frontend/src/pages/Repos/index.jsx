@@ -15,7 +15,6 @@ export const Repos = () => {
   useEffect(() => {
     axios.get(`https://challenge-api-sxr2.onrender.com/api/repos/${login}`)
       .then((response) => {
-        console.log(response.data);
         setUserRepos(response.data);
         setLoading(false);
       })
@@ -35,7 +34,7 @@ export const Repos = () => {
         <Title>Repositories for {login}</Title>
       </Header>
       <ReposListContainer>
-        {userRepos.map((repo) => (
+        {userRepos?.map((repo) => (
           <ReposItemContainer>
             <Title key={repo.name}>{repo.name}
             </Title>
