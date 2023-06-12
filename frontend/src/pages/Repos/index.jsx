@@ -2,8 +2,9 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import { ReposListContainer, ReposItemContainer, ButtonContainer, Button, Header, Title, Text } from './styles';
+import { ReposListContainer, ReposItemContainer, ButtonContainer, ButtonPage, Header, Title, Text, Link, BackIcon, ButtonBack } from './styles';
 import { useNavigate } from 'react-router-dom';
+import { HeaderIcon } from "../Repos/styles";
 
 export const Repos = () => {
   const [userRepos, setUserRepos] = useState([]);
@@ -31,6 +32,10 @@ export const Repos = () => {
   return (
     <>
       <Header>
+        <ButtonBack onClick={() => navigate(-1)}>
+          <BackIcon size={40}/>
+        </ButtonBack>
+        <HeaderIcon size={40} />
         <Title>Repositories for {login}</Title>
       </Header>
       <ReposListContainer>
@@ -38,13 +43,14 @@ export const Repos = () => {
           <ReposItemContainer>
             <Title key={repo.name}>{repo.name}
             </Title>
-              <Text>Id: {repo.id}</Text>
+            <Text>Id: {repo.id}</Text>
+            <Link href={repo.url} target="_blank" rel="noopener noreferrer">
               <Text>{repo.url}</Text>
-            
+            </Link>
           </ReposItemContainer>
         ))}
         <ButtonContainer>
-          <Button onClick={() => navigate(-1)}>Back</Button>
+          <ButtonPage onClick={() => navigate(-1)}>Back</ButtonPage>
         </ButtonContainer>
       </ReposListContainer></>
   );

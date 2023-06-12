@@ -1,24 +1,21 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-  background-color: #f5f5f5;
+  background-color: #0d1117;
   height: 60px;
   display: flex;
-  width: 50%;
-  text-align: center;
-  justify-content: center;
   align-items: center;
-  padding: 1 20px;
-  border-radius: 10px;
-  margin: auto;
-  margin-top: 20px;
+  justify-content: center;
 `;
+
 
 export const Title = styled.h1`
   font-family: 'Roboto', sans-serif;
-  color: black;
+  color: white;
   align-items: center;
-  font-size: 50px;
+  font-size: 40px;
+  font-weight: 150;
+  margin-left: 10px;
 `;
 
 export const DetailListContainer = styled.div`
@@ -30,30 +27,33 @@ export const DetailListContainer = styled.div`
 
 export const DetailItemContainer = styled.div`
   display: flex;
-  width: 600px;
+  width: 500px;
   padding: 15px;
-  margin-bottom: 5px;
-  background-color: #f5f5f5;
-  border-radius: 5px;
   align-items: center;
   text-align: center;
   margin-bottom: 5px;
+  border: 0.5px solid #484f58;
+  justify-content: flex-start;
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: #0d1117;
+  border-radius: 5px;
 `;
 
 export const Text = styled.span`
   font-size: 22px;
   font-family: 'Roboto', sans-serif;
-  color: black;
+  color: white;
   margin: 10px 10px 10px 0;
   display: flex;
   justify-content: center;
   margin:auto;
 `;
 
-export const Button = styled.button`
-  background-color: grey;
+export const ButtonPage = styled.button`
+  background-color: #0d1117;
   color: white;
-  border: none;
+  border: 0.5px solid #484f58;
   border-radius: 5px;
   padding: 8px;
   text-align: center;
@@ -61,6 +61,8 @@ export const Button = styled.button`
   display: inline-block;
   font-size: 20px;
   margin: 4px 2px;
+  margin-top: 10px;
+  margin-left: 10px;
   white-space: nowrap;
   cursor: pointer;
 

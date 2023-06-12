@@ -2,14 +2,12 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import { DetailItemContainer, DetailListContainer, Text, Header, Title, Button, ButtonContainer } from './styles';
+import { DetailItemContainer, DetailListContainer, Text, Header, Title, ButtonContainer, ButtonPage } from './styles';
 import { useNavigate } from 'react-router-dom';
+import { HeaderIcon } from "../Home/styles";
 
 export const Details = () => {
   const [userDetails, setUserDetails] = useState([]);
-  console.log(userDetails);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const { login } = useParams();
@@ -27,6 +25,7 @@ export const Details = () => {
   return (
     <>
       <Header>
+        <HeaderIcon size={40} />
         <Title>User Details</Title>
       </Header>
       <DetailListContainer>
@@ -43,7 +42,7 @@ export const Details = () => {
           <Text>Created in: {userDetails.created_at}</Text>
         </DetailItemContainer>
       <ButtonContainer>
-      <Button onClick={() => navigate(-1)}>Back</Button>
+      <ButtonPage onClick={() => navigate(-1)}>Back</ButtonPage>
       </ButtonContainer>
       </DetailListContainer>
     </>

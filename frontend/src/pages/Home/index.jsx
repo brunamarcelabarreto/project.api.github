@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserListContainer, UserItemContainer, Username, ButtonContainer, Button, ButtonPage, Header, Title} from './styles';
+import { UserListContainer, UserItemContainer, Username, ButtonContainer, Button, ButtonPage, Header, Title, UserIcon, ButtonPaginationContainer, HeaderIcon} from './styles';
 
 export const Home = () => {
   const [users, setUsers] = useState([]);
@@ -21,11 +21,13 @@ export const Home = () => {
   return (
     <>
     <Header>
+    <HeaderIcon size={40} />
     <Title>List of Github Users</Title>
     </Header>
     <UserListContainer>
       {users?.map(user => (
         <UserItemContainer key={user.id}>
+          <UserIcon className='user-icon' />
           <Username>User ID: {user.id}</Username>
           <Username>Login: {user.login}</Username>
           <ButtonContainer>
@@ -34,10 +36,10 @@ export const Home = () => {
           </ButtonContainer>
         </UserItemContainer>
       ))}
-      <ButtonContainer>
+      <ButtonPaginationContainer>
         <ButtonPage onClick={() => setPagination({ ...pagination, page: pagination.page - 1 })} disabled={pagination.page === 1}>Previous</ButtonPage>
         <ButtonPage onClick={() => setPagination({ ...pagination, page: pagination.page + 1 })} disabled={pagination.page === pagination.totalPages}>Next</ButtonPage>
-      </ButtonContainer>
+      </ButtonPaginationContainer>
     </UserListContainer>
     </>
   )
